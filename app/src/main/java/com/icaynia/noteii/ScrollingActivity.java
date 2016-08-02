@@ -48,4 +48,8 @@ public class ScrollingActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void setTitleText(String text) {
+        
+    }
 }
