@@ -8,9 +8,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class ScrollingActivity extends AppCompatActivity {
-
+    TextView textContentView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +27,12 @@ public class ScrollingActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        textContentView = (TextView) findViewById(R.id.textContentView);
+
+        setTextContent("www");
+
+
     }
 
     @Override
@@ -51,5 +58,10 @@ public class ScrollingActivity extends AppCompatActivity {
 
     public void setTitleText(String text) {
         
+    }
+
+    public void setTextContent(String textContent) {
+        textContentView.setText(textContent);
+
     }
 }
