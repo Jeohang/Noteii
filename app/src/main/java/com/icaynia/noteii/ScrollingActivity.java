@@ -8,16 +8,19 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class ScrollingActivity extends AppCompatActivity {
-
+    TextView textContentView;
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scrolling);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,6 +29,14 @@ public class ScrollingActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        */
+
+        textContentView = (TextView) findViewById(R.id.textContentView);
+
+        setContentText("wwwㄷ");
+        setTitleText("wwwe");
+
+
     }
 
     @Override
@@ -50,6 +61,11 @@ public class ScrollingActivity extends AppCompatActivity {
     }
 
     public void setTitleText(String text) {
-        
+        setTitle(text);
+    }
+
+    public void setContentText(String textContent) {
+        textContentView.setText(textContent);
+
     }
 }
