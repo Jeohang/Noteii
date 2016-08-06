@@ -12,13 +12,15 @@ import android.widget.TextView;
 
 public class ScrollingActivity extends AppCompatActivity {
     TextView textContentView;
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scrolling);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,10 +29,12 @@ public class ScrollingActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        */
 
         textContentView = (TextView) findViewById(R.id.textContentView);
 
-        setTextContent("www");
+        setContentText("www");
+        setTitleText("www");
 
 
     }
@@ -57,10 +61,10 @@ public class ScrollingActivity extends AppCompatActivity {
     }
 
     public void setTitleText(String text) {
-        
+        toolbar.setTitle(text);
     }
 
-    public void setTextContent(String textContent) {
+    public void setContentText(String textContent) {
         textContentView.setText(textContent);
 
     }
