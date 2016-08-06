@@ -33,8 +33,8 @@ public class ScrollingActivity extends AppCompatActivity {
 
         textContentView = (TextView) findViewById(R.id.textContentView);
 
-        setContentText("www");
-        setTitleText("www");
+        setContentText("wwwㄷ");
+        setTitleText("wwwe");
 
 
     }
@@ -61,7 +61,7 @@ public class ScrollingActivity extends AppCompatActivity {
     }
 
     public void setTitleText(String text) {
-        toolbar.setTitle(text);
+        setTitle(text);
     }
 
     public void setContentText(String textContent) {
