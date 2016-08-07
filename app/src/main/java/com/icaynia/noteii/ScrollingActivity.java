@@ -1,17 +1,26 @@
 package com.icaynia.noteii;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 
 public class ScrollingActivity extends AppCompatActivity {
-    TextView textContentView;
+    EditText textContentView;
     Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +40,11 @@ public class ScrollingActivity extends AppCompatActivity {
         });
         */
 
-        textContentView = (TextView) findViewById(R.id.textContentView);
-
-        setContentText("wwwㄷ");
-        setTitleText("wwwe");
+        textContentView = (EditText) findViewById(R.id.textContentView);
 
 
+        setTitleText("www");
+        setContentText("123");
     }
 
     @Override
@@ -66,6 +74,12 @@ public class ScrollingActivity extends AppCompatActivity {
 
     public void setContentText(String textContent) {
         textContentView.setText(textContent);
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
 
     }
 }
