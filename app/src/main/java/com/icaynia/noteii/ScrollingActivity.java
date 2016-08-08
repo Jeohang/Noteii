@@ -51,7 +51,7 @@ public class ScrollingActivity extends AppCompatActivity {
 
 
         setTitleText("www");
-        setContentText("123");
+        setContentText(loadmemo());
 
     }
 
@@ -91,6 +91,11 @@ public class ScrollingActivity extends AppCompatActivity {
 
         Log.e("Noteii", "File Saved : " + textContentView.getText().toString());
         Toast.makeText(this, "saved", Toast.LENGTH_SHORT);
+    }
+
+    public String loadmemo() {
+        FileManager mFilemnger = new FileManager();
+        return mFilemnger.loadFile(filename);
     }
 
     @Override
