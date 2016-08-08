@@ -87,13 +87,15 @@ public class ScrollingActivity extends AppCompatActivity {
 
     public void savememo() {
         FileManager mFilemnger = new FileManager();
-        mFilemnger.saveFile(filename, "ㅇㅇ"+"e#-\n");
+        mFilemnger.saveFile(filename, textContentView.getText().toString());
 
-        Log.e("Noteii", "File Saved.");
+        Log.e("Noteii", "File Saved : " + textContentView.getText().toString());
+        Toast.makeText(this, "saved", Toast.LENGTH_SHORT);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
+        savememo();
     }
 }
