@@ -12,45 +12,45 @@ import java.io.InputStreamReader;
 /**
  * Created by icaynia on 16. 8. 6..
  */
+
 public class FileManager {
-
-    String dirPath = "/sdcard";
+    String dirPath = "/sdcard/Noteii";
     File file = new File(dirPath);
-    public void onCreate() {
 
+    public void listFile() {
+        if ( file.listFiles().length > 0 )
+            for ( File f : file.listFiles() ) {
+                String str = f.getName();
+                Log.v(null,"fileName : "+str);
+                String loadPath = dirPath+"/"+str;
 
-        String st = "#1\n" +
-                "c1=0\n" +
-                "c2=3\n" +
-                "#2" +
-                "#3" +
-                "#4" +
-                "#end";
-        saveFile("Sample.rio", st);
-
-// 파일이 1개 이상이면 파일 이름 출력
-
-
+            }
     }
-
     public String loadFile(String FileName) {
 
         String content = "";
-        String str = FileName;
-        Log.v(null, "fileName : " + str);
-        String loadPath = dirPath + "/" + str;
-        try {
-            FileInputStream fis = new FileInputStream(loadPath);
-            BufferedReader bufferReader = new BufferedReader(new InputStreamReader(fis));
+        if ( file.listFiles().length > 0 ) {
+            for (File f : file.listFiles()) {
+                String str = FileName;
+                Log.v(null, "fileName : " + str);
+                String loadPath = dirPath + "/" + str;
+                try {
+                    FileInputStream fis = new FileInputStream(loadPath);
+                    BufferedReader bufferReader = new BufferedReader(new InputStreamReader(fis));
 
-            String temp = "";
-            while ((temp = bufferReader.readLine()) != null) {
-                content += temp;
+                    String temp = "";
+                    while ((temp = bufferReader.readLine()) != null) {
+                        content += temp;
+                    }
+                    Log.v(null, "" + content);
+
+
+                } catch (Exception e) {
+
+                }
+
             }
-            Log.v(null, "" + content);
-
-
-        } catch (Exception e) {
+        } else {
 
         }
         return content;

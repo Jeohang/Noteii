@@ -22,6 +22,7 @@ import java.io.PrintWriter;
 public class ScrollingActivity extends AppCompatActivity {
     EditText textContentView;
     Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,11 +41,17 @@ public class ScrollingActivity extends AppCompatActivity {
         });
         */
 
+        FileManager mFilemnger = new FileManager();
+        mFilemnger.saveFile("note.txt", "ㅇㅇ"+"e#-\n");
+
+        Log.e("t", "1244");
+
         textContentView = (EditText) findViewById(R.id.textContentView);
 
 
         setTitleText("www");
         setContentText("123");
+
     }
 
     @Override
