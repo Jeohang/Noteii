@@ -23,6 +23,8 @@ public class ScrollingActivity extends AppCompatActivity {
     EditText textContentView;
     Toolbar toolbar;
 
+    String filename = "note.txt";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,10 +43,9 @@ public class ScrollingActivity extends AppCompatActivity {
         });
         */
 
-        FileManager mFilemnger = new FileManager();
-        mFilemnger.saveFile("note.txt", "ㅇㅇ"+"e#-\n");
 
-        Log.e("t", "1244");
+
+
 
         textContentView = (EditText) findViewById(R.id.textContentView);
 
@@ -84,9 +85,15 @@ public class ScrollingActivity extends AppCompatActivity {
 
     }
 
+    public void savememo() {
+        FileManager mFilemnger = new FileManager();
+        mFilemnger.saveFile(filename, "ㅇㅇ"+"e#-\n");
+
+        Log.e("Noteii", "File Saved.");
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
-
     }
 }
