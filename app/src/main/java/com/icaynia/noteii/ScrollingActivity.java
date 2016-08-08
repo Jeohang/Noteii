@@ -72,6 +72,8 @@ public class ScrollingActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        } else if (id == R.id.action_save) {
+            savememo();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -90,7 +92,7 @@ public class ScrollingActivity extends AppCompatActivity {
         mFilemnger.saveFile(filename, textContentView.getText().toString());
 
         Log.e("Noteii", "File Saved : " + textContentView.getText().toString());
-        Toast.makeText(this, "saved", Toast.LENGTH_SHORT);
+        Toast.makeText(getApplicationContext(), "saved", Toast.LENGTH_SHORT).show();
     }
 
     public String loadmemo() {
