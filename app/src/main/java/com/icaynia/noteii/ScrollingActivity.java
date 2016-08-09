@@ -15,10 +15,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.PrintWriter;
-
 public class ScrollingActivity extends AppCompatActivity {
     EditText textContentView;
     Toolbar toolbar;
@@ -45,13 +41,14 @@ public class ScrollingActivity extends AppCompatActivity {
 
 
 
-
-
         textContentView = (EditText) findViewById(R.id.textContentView);
 
 
         setTitleText("www");
         setContentText(loadmemo());
+
+
+
 
     }
 
@@ -89,15 +86,20 @@ public class ScrollingActivity extends AppCompatActivity {
 
     public void savememo() {
         FileManager mFilemnger = new FileManager();
-        mFilemnger.saveFile(filename, textContentView.getText().toString());
 
-        Log.e("Noteii", "File Saved : " + textContentView.getText().toString());
+
+        String str = textContentView.getText().toString().replace(System.getProperty("line.separator"), "\\n");
+
+        mFilemnger.saveFile(filename, str);
+
+        Log.e("Noteii", "File Saved : " + str);
         Toast.makeText(getApplicationContext(), "saved", Toast.LENGTH_SHORT).show();
     }
 
     public String loadmemo() {
         FileManager mFilemnger = new FileManager();
-        return mFilemnger.loadFile(filename);
+
+        return mFilemnger.loadFile(filename).replace("\\n", System.getProperty("line.separator"));
     }
 
     @Override

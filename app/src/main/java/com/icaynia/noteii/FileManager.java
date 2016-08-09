@@ -42,7 +42,7 @@ public class FileManager {
                     while ((temp = bufferReader.readLine()) != null) {
                         content += temp;
                     }
-                    Log.v(null, "" + content);
+                    Log.v(null, "" + content.toString());
 
 
                 } catch (Exception e) {
