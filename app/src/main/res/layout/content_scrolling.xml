@@ -13,6 +13,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/textContentView"
         android:layout_margin="@dimen/text_margin"
-        android:editable="true" />
+        android:inputType="textMultiLine"
+        android:editable="true"
+        android:textColor="@color/textContent" />
 
 </LinearLayout>
