@@ -7,6 +7,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.Menu;
@@ -42,14 +44,25 @@ public class ScrollingActivity extends AppCompatActivity {
 
 
         textContentView = (EditText) findViewById(R.id.textContentView);
+        textContentView.addTextChangedListener(new TextWatcher(){
+            @Override
+            public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
 
+                String getT[] = textContentView.getText().toString().split("\n");
+                setTitle(getT[0]);
+                Log.e("Noteii", "File Saved : ");
+            }
+            @Override
+            public void afterTextChanged(Editable arg0) {
 
-        setTitleText("www");
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+
+            }
+        });
         setContentText(loadmemo());
-
-
-
-
     }
 
     @Override
@@ -67,9 +80,10 @@ public class ScrollingActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+        /*
         if (id == R.id.action_settings) {
             return true;
-        } else if (id == R.id.action_save) {
+        } else */if (id == R.id.action_save) {
             savememo();
         }
         return super.onOptionsItemSelected(item);
@@ -81,7 +95,8 @@ public class ScrollingActivity extends AppCompatActivity {
 
     public void setContentText(String textContent) {
         textContentView.setText(textContent);
-
+        String getT[] = textContent.split("\\n");
+        setTitleText(getT[0]);
     }
 
     public void savememo() {
