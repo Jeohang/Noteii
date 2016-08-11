@@ -71,12 +71,12 @@ public class FileManager {
     }
 
     public void saveFile(String FileName, String str) {
-        // 일치하는 폴더가 없으면 생성
+
+        String dirPath = "/sdcard/Noteii";
+        File file = new File(dirPath);
         if( !file.exists() ) {
             file.mkdirs();
         }
-
-        // rio 파일 생성
         String testStr = str;
 
         File savefile = new File(dirPath+"/"+FileName);
