@@ -29,6 +29,7 @@ public class ScrollingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_scrolling);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(getResources().getDrawable(android.R.drawable.ic_menu_save));
 
         /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
