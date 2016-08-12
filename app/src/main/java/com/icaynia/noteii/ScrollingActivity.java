@@ -29,8 +29,7 @@ public class ScrollingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_scrolling);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(getResources().getDrawable(android.R.drawable.ic_menu_save));
-
+        //toolbar.setNavigationIcon(getResources().getDrawable(android.R.drawable.ic_menu_save));
         /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -41,10 +40,8 @@ public class ScrollingActivity extends AppCompatActivity {
             }
         });
         */
-
-
-
         textContentView = (EditText) findViewById(R.id.textContentView);
+        /*
         textContentView.addTextChangedListener(new TextWatcher(){
             @Override
             public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
@@ -63,6 +60,7 @@ public class ScrollingActivity extends AppCompatActivity {
 
             }
         });
+        */
         setContentText(loadmemo());
     }
 
@@ -109,6 +107,7 @@ public class ScrollingActivity extends AppCompatActivity {
         mFilemnger.saveFile(filename, str);
 
         Log.e("Noteii", "File Saved : " + str);
+
         Toast.makeText(getApplicationContext(), "saved", Toast.LENGTH_SHORT).show();
     }
 
