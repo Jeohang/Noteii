@@ -20,13 +20,17 @@ import android.widget.Toast;
 public class ScrollingActivity extends AppCompatActivity {
     EditText textContentView;
     Toolbar toolbar;
+    memo tmemo = new memo();
 
     String filename = "note.txt";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scrolling);
+
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //toolbar.setNavigationIcon(getResources().getDrawable(android.R.drawable.ic_menu_save));
@@ -77,8 +81,6 @@ public class ScrollingActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         /*
         if (id == R.id.action_settings) {
             return true;
@@ -98,23 +100,21 @@ public class ScrollingActivity extends AppCompatActivity {
         setTitleText(getT[0]);
     }
 
-    public void savememo() {
-        FileManager mFilemnger = new FileManager();
 
-
-        String str = textContentView.getText().toString().replace(System.getProperty("line.separator"), "\\n");
-
-        mFilemnger.saveFile(filename, str);
-
-        Log.e("Noteii", "File Saved : " + str);
-
-        Toast.makeText(getApplicationContext(), "saved", Toast.LENGTH_SHORT).show();
-    }
 
     public String loadmemo() {
-        FileManager mFilemnger = new FileManager();
+        tmemo.load("note.txt");
+        return tmemo.get();
+    }
 
-        return mFilemnger.loadFile(filename).replace("\\n", System.getProperty("line.separator"));
+
+
+    public void savememo() {
+        FileManager mFilemnger = new FileManager();
+        String str = textContentView.getText().toString().replace(System.getProperty("line.separator"), "\\n");
+        tmemo.set(str);
+        tmemo.save(filename);
+        Toast.makeText(getApplicationContext(), "저장됨", Toast.LENGTH_SHORT).show();
     }
 
     @Override
