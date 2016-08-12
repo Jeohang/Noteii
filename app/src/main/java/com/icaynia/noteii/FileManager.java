@@ -23,7 +23,6 @@ public class FileManager {
                 String str = f.getName();
                 Log.v(null,"fileName : "+str);
                 String loadPath = dirPath+"/"+str;
-
             }
     }
     public String loadFile(String FileName) {
