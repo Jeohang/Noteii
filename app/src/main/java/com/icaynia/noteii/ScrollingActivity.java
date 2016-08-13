@@ -1,27 +1,17 @@
 package com.icaynia.noteii;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.os.Environment;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class ScrollingActivity extends AppCompatActivity {
     EditText textContentView;
     Toolbar toolbar;
     memo tmemo = new memo();
-
     String filename = "note.txt";
 
 
@@ -33,7 +23,7 @@ public class ScrollingActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //toolbar.setNavigationIcon(getResources().getDrawable(android.R.drawable.ic_menu_save));
+        toolbar.setNavigationIcon(getResources().getDrawable(android.R.drawable.ic_menu_sort_by_size));
         /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -66,11 +56,13 @@ public class ScrollingActivity extends AppCompatActivity {
         });
         */
         setContentText(loadmemo());
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        //getMenuInflater().inflate(R.menu.menu_scrolling, menu);
         getMenuInflater().inflate(R.menu.menu_scrolling, menu);
         return true;
     }
@@ -110,11 +102,12 @@ public class ScrollingActivity extends AppCompatActivity {
 
 
     public void savememo() {
-        FileManager mFilemnger = new FileManager();
         String str = textContentView.getText().toString().replace(System.getProperty("line.separator"), "\\n");
         tmemo.set(str);
         tmemo.save(filename);
         Toast.makeText(getApplicationContext(), "저장됨", Toast.LENGTH_SHORT).show();
+
+
     }
 
     @Override

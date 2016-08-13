@@ -71,8 +71,6 @@ public class FileManager {
 
     public void saveFile(String FileName, String str) {
 
-        String dirPath = "/sdcard/Noteii";
-        File file = new File(dirPath);
         if( !file.exists() ) {
             file.mkdirs();
         }
